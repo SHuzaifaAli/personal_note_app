@@ -35,7 +35,7 @@ class _NoteEditorScreenState extends State<NoteEditorScreen> {
         ..content = _contentController.text
         ..createdAt = widget.note?.createdAt ?? DateTime.now()
         ..id = widget.note?.id ?? Isar.autoIncrement;
-
+debugPrint(newNote.id.toString());
       await _repository.addNote(newNote);
       Navigator.pop(context, true); // Return true to indicate a refresh is needed
     }

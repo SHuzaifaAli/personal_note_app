@@ -13,9 +13,9 @@ class NoteApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Personal Notes',
-      theme: ThemeData.light(),
+      theme: ThemeData.dark(),
       darkTheme: ThemeData.dark(),
-      themeMode: ThemeMode.system, // Auto adapts to system theme
+      themeMode: ThemeMode.dark, // Auto adapts to system theme
       home: const HomeScreen(),
     );
   }

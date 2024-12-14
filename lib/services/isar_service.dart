@@ -4,13 +4,21 @@ import 'package:path_provider/path_provider.dart';
 import '../models/note.dart';
 
 class IsarService {
+  static final IsarService _instance = IsarService._internal();
   late Future<Isar> db;
 
-  IsarService() {
+  factory IsarService() {
+    return _instance;
+  }
+
+  IsarService._internal() {
     db = _initDB();
   }
 
   Future<Isar> _initDB() async {
+    if (Isar.instanceNames.isNotEmpty) {
+      return Isar.getInstance()!; // Return the existing instance
+    }
     final dir = await getApplicationDocumentsDirectory();
     return await Isar.open([NoteSchema], directory: dir.path);
   }
